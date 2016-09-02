@@ -2,6 +2,15 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Cnn test on Web browser">
 
+
+
+    <parameter name = "useSauceLabs" value = "false"/>
+    <parameter name = "userName" value = "shamimchy"/>
+    <parameter name = "key" value = "05144fd9-ac5f-4347-84d3-b6cc0254566a"/>
+    <parameter name = "os" value = "WIN8"/>
+    <parameter name = "browserName" value = "firefox"/>
+    <parameter name = "browserVersion" value = "43"/>
+
     <parameter name="url" value="http://www.taxifare.us"/>
 
     <test name="TaxiFareBase Test">
