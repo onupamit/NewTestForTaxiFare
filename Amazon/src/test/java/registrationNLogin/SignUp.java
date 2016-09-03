@@ -16,7 +16,7 @@ import java.io.IOException;
  */
 public class SignUp extends Base {
     public DataReader dr = new DataReader();
-    String path = "/Users/shamimchy/IdeaProjects/NewTestForTaxiFare/Amazon/data/file2.xls";
+    String path = "NewTestForTaxiFare/Amazon/data/file2.xls";
 
     @Test
     public void signIn()throws IOException,InterruptedException {
