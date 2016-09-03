@@ -26,6 +26,7 @@
         <module name="Amazon" />
         <module name="Common" />
         <module name="CommonM" />
+        <module name="Random" />
         <module name="TaxiFare" />
         <module name="untitled" />
       </profile>
@@ -35,6 +36,7 @@
       <module name="Common" target="1.5" />
       <module name="CommonM" target="1.5" />
       <module name="NewTestForTaxiFare" target="1.5" />
+      <module name="Random" target="1.5" />
       <module name="TaxiFare" target="1.5" />
       <module name="untitled" target="1.5" />
     </bytecodeTargetLevel>

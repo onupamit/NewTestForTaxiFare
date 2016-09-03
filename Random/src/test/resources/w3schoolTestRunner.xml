@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="W3school Scrap Table Data" parallel="tests">
+
+    <parameter name="useCloudEnv" value="false"/>
+    <parameter name="userName" value="your user name"/>
+    <parameter name="key" value="6f132866-de72-43fd-b49a-e6f81d26bfe3"/>
+    <parameter name="os" value="Windows 10"/>
+    <parameter name="browser" value="firefox"/>
+    <parameter name="browserVersion" value="43.0"/>
+    <parameter name="url" value="http://www.w3schools.com/sql/sql_where.asp"/>
+
+    <test name = "w3school data">
+        <classes>
+            <class name="w3schools.TableData"/>
+        </classes>
+    </test>
+
+
+</suite>

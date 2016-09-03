@@ -1,7 +1,5 @@
 package utility;
 
-
-
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -15,15 +13,16 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
- * Created by shamimchy on 9/2/16.
+ * Created by rrt on 8/29/2015.
  */
+
 public class DataReader {
     HSSFWorkbook wb = null;
     HSSFSheet sheet = null;
     Cell cell = null;
     FileOutputStream fio = null;
     int numberOfRows, numberOfCol, rowNum;
-    public String[][] fileReader(String path)throws IOException{
+    public String[][] fileReader1(String path)throws IOException{
         String [] [] data = {};
         File file = new File(path);
         FileInputStream fis = new FileInputStream(file);
@@ -39,6 +38,26 @@ public class DataReader {
                 HSSFCell cell = rows.getCell(j);
                 String cellData = getCellValue(cell);
                 data[i][j] = cellData;
+            }
+        }
+        return  data;
+    }
+    public String[] fileReader(String path)throws IOException{
+        String []  data = {};
+        File file = new File(path);
+        FileInputStream fis = new FileInputStream(file);
+        wb = new HSSFWorkbook(fis);
+        sheet = wb.getSheetAt(0);
+        numberOfRows = sheet.getLastRowNum();
+        numberOfCol =  sheet.getRow(0).getLastCellNum();
+        data = new String[numberOfRows+1];
+
+        for(int i=1; i<data.length; i++){
+            HSSFRow rows = sheet.getRow(i);
+            for(int j=0; j<numberOfCol; j++){
+                HSSFCell cell = rows.getCell(j);
+                String cellData = getCellValue(cell);
+                data[i] = cellData;
             }
         }
         return  data;
