@@ -10,6 +10,7 @@ public class TableData extends Base {
 
     @Test
     public void getTableData(){
+        System.out.println( "---------Test is Running-- shamim  10.46----------");
         for(int i=1; i<=6; i++){
             String text = getTextByCss(".table-responsive tbody tr:nth-child("+i+")");
             System.out.println( text);

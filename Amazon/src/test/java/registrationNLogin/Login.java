@@ -12,7 +12,7 @@ import java.io.IOException;
 public class Login extends Base {
 
     public DataReader dr = new DataReader();
-    String path = "NewTestForTaxiFare/Amazon/data/file2.xls";
+    String path = "../Amazon/data/file2.xls";
 
 
     @Test

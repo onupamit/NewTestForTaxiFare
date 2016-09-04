@@ -51,11 +51,33 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.6</version>
         </dependency>
-
-
     </dependencies>
-
     </dependencyManagement>
 
+    <profiles>
+        <profile>
+            <id>amazon-app</id>
+            <modules>
+                <module>Common</module>
+                <module>Amazon</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>random-app</id>
+            <modules>
+                <module>Common</module>
+                <module>Random</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>taxifare-app</id>
+            <modules>
+                <module>Common</module>
+                <module>TaxiFare</module>
+            </modules>
+        </profile>
+    </profiles>
 
 </project>
