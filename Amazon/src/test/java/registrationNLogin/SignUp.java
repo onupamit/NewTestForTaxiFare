@@ -16,7 +16,7 @@ import java.io.IOException;
  */
 public class SignUp extends Base {
     public DataReader dr = new DataReader();
-    String path = "../Amazon/data/file2.xls";
+    String path = "NewTestForTaxiFare/Amazon/data/file2.xls";
 
     @Test
     public void signIn()throws IOException,InterruptedException {
@@ -25,7 +25,7 @@ public class SignUp extends Base {
             String [][] value = dr.fileReader1(path);
             sleepFor(2);
             clickByCss("#nav-tools #nav-link-yourAccount .nav-line-1");
-          //  clickByCss(".nav-action-inner");
+            clickByCss(".nav-action-inner");
             sleepFor(2);
             String emailLocator = value[1][0];
             String email = value[1][1];
