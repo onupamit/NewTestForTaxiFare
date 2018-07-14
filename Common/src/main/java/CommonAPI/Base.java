@@ -43,7 +43,7 @@ public class Base {
     @BeforeMethod
     public void setUp(@Optional("false") Boolean useCloudeEnv, @Optional("rahmanww")String userName,
                       @Optional("ssk")String key, @Optional("WIN8")String os,@Optional("firefox") String browserName,
-                      @Optional("35")String browserVersion,@Optional("http://piit.us") String url)throws IOException{
+                      @Optional("55.0.3")String browserVersion,@Optional("http://piit.us") String url)throws IOException{
 
         if (useCloudeEnv==true){
             logger.setLevel(Level.INFO);
@@ -53,7 +53,7 @@ public class Base {
         }
         else {
             logger.setLevel(Level.INFO);
-            logger.info("Test is Running on Cloude Environment");
+            logger.info(" Test is running on Local Computer");
             getLocalDriver(os, browserName, browserVersion);
             System.out.println(" Test is running on Local Computer");
            }
@@ -74,14 +74,32 @@ public class Base {
     }
 
     public  WebDriver getLocalDriver(String os, String browserName,String browserVersion){
-        if(browserName.equalsIgnoreCase("firefox")){
-            driver = new FirefoxDriver();
+        if(browserName.equalsIgnoreCase("Chrome")){
 
-        } else if(browserName.equalsIgnoreCase("chrome")){
-            System.setProperty("webdriver.chrome.driver","/Users/shamimchy/IdeaProjects/NewTestForTaxiFare/Common/seleniumDriver/chromedriver");
+            System.setProperty("webdriver.chrome.driver","/Users/shamimchy/Documents/chromedriver");
             driver = new ChromeDriver();
+            System.out.println(" This test is running in chrome in local computer");
+
+
+        } else if(browserName.equalsIgnoreCase("firefox")){
+              System.setProperty("webdriver.gecko.driver", "/Users/shamimchy/Documents/geckodriver");
+              driver =  new FirefoxDriver();
+
+//            System.setProperty("webdriver.gecko.driver", "/Users/shamimchy/Documents/geckodriver_old/geckodriver");
+
+//
+//            DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+//            capabilities.setCapability("marionette", true);
+//            driver = new FirefoxDriver();
+            System.out.println(" This test is running in firefox in local computer");
+
         }else if(browserName.equalsIgnoreCase("safari")){
             driver = new SafariDriver();
+            System.out.println(" This test is running in safari in local computer");
+            if(os.equalsIgnoreCase("mac")){
+                System.out.println(" Mac is running --------safari  ///// ------------");
+            }
+
         } else if(browserName.equalsIgnoreCase("IE")){
             System.setProperty("webdriver.ie.driver" , "/Common/seleniumDriver/IEDriverServer");
             driver = new InternetExplorerDriver();
@@ -116,6 +134,8 @@ public class Base {
 
         return text;
     }
+
+
     public void clearInput(String locator){
         driver.findElement(By.cssSelector(locator)).clear();
     }
@@ -132,7 +152,7 @@ public class Base {
     public void typeByCssThenEnter(String locator, String value){
         driver.findElement(By.cssSelector(locator)).sendKeys(Keys.CLEAR, value, Keys.ENTER);
     }
-    public void typeByXpath(String locator){
+    public void clicByXpath(String locator){
         driver.findElement(By.xpath(locator)).click();
     }
     public void clickById(String locator){
@@ -140,6 +160,9 @@ public class Base {
     }
     public void clickByName(String locator){
         driver.findElement(By.id(locator)).click();
+    }
+    public void clickByText(String locator){
+        driver.findElement(By.linkText(locator)).click();
     }
     public void navigateBack(){
         driver.navigate().back();
@@ -175,6 +198,30 @@ public class Base {
         elementList = driver.findElements(By.cssSelector(locator));
 
         return elementList;
+    }
+
+
+    public List<String> getListOfTextByCss(String locator){
+        List<WebElement> element = driver.findElements(By.cssSelector(locator));
+        List<String> text = new ArrayList<String>();
+
+        for(WebElement st:element){
+            text.add(st.getText());
+        }
+        return text;
+    }
+
+    public List<String> searchDropDownMenu(String locator){
+        List<String> menuList = getListOfTextByCss(locator);
+        return menuList;
+    }
+
+
+
+    public void displayText(List<String> text){
+        for(String st:text){
+            System.out.println(st);
+        }
     }
     public WebElement getWebElementByXpath(String locator){
         WebElement element = driver.findElement(By.xpath(locator));
@@ -278,5 +325,6 @@ public class Base {
         File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(file,new File("screenShots.png"));
     }
+
 
 }

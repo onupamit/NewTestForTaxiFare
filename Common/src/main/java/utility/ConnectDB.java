@@ -21,7 +21,7 @@ public class ConnectDB {
 
     public static Properties loadPropertiesFile()throws Exception{
         Properties prop = new Properties();
-        InputStream ism = new FileInputStream("Generic/lib/MySQL.properties");
+        InputStream ism = new FileInputStream("/Users/shamimchy/IdeaProjects/NewTestForTaxiFare/Generic/lib/MySQL.properties");
         prop.load(ism);
         ism.close();
 

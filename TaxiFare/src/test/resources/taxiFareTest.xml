@@ -6,15 +6,16 @@
     <parameter name = "useSauceLabs" value = "false"/>
     <parameter name = "userName" value = "shamimchy"/>
     <parameter name = "key" value = "05144fd9-ac5f-4347-84d3-b6cc0254566a"/>
-    <parameter name = "os" value = "WIN8"/>
+    <parameter name = "os" value = "MAC"/>
     <parameter name = "browserName" value = "firefox"/>
-    <parameter name = "browserVersion" value = "43"/>
+    <parameter name = "browserVersion" value = "55.0.3"/>
 
     <parameter name="url" value="http://www.taxifare.us"/>
 
     <test name="TaxiFareBase Test">
         <classes>
             <class name="TaxiFareBase"/>
+            <class name="TaxiFareDropDown"/>
         </classes>
     </test>
 
