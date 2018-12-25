@@ -15,6 +15,7 @@
         <module>Random</module>
         <module>Apachi_POI_RR</module>
         <module>Generic</module>
+        <module>Extent_report</module>
     </modules>
 
     <dependencyManagement>

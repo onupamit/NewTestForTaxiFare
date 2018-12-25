@@ -14,10 +14,8 @@
 
     <test name="TaxiFareBase Test">
         <classes>
-            <class name="TaxiFareBase"/>
+            <!--<class name="TaxiFareBase"/>-->
             <class name="TaxiFareDropDown"/>
         </classes>
     </test>
-
-
 </suite>
